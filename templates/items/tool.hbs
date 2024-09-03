@@ -7,10 +7,10 @@
         <div class="header-details flexrow">
             <h1 class="charname">
                 {{#if system.identified}}
-                <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'DND5E.ItemName' }}">
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'BLEACHD20.ItemName' }}">
                 {{else}}
                 <input name="system.unidentified.name" type="text" value="{{system.unidentified.name}}"
-                       placeholder="{{ localize 'DND5E.NameUnidentified' }}">
+                       placeholder="{{ localize 'BLEACHD20.NameUnidentified' }}">
                 {{/if}}
             </h1>
 
@@ -19,20 +19,20 @@
                 <label class="equipped">
                     <input type="checkbox" name="system.equipped" {{checked system.equipped}}>
                     {{#if system.equipped}}
-                        {{ localize "DND5E.Equipped" }}
+                        {{ localize "BLEACHD20.Equipped" }}
                         {{#if editable}}<i class="fa-solid fa-toggle-on"></i>{{/if}}
                     {{else}}
-                        {{ localize "DND5E.Unequipped" }}
+                        {{ localize "BLEACHD20.Unequipped" }}
                         {{#if editable}}<i class="fa-solid fa-toggle-off"></i>{{/if}}
                     {{/if}}
                 </label>
                 <label class="identified">
                     <input type="checkbox" name="system.identified" {{checked system.identified}}>
                     {{#if system.identified}}
-                        {{ localize "DND5E.Identified" }}
+                        {{ localize "BLEACHD20.Identified" }}
                         {{#if editable}}<i class="fa-solid fa-toggle-on"></i>{{/if}}
                     {{else}}
-                        {{ localize "DND5E.Unidentified.Title" }}
+                        {{ localize "BLEACHD20.Unidentified.Title" }}
                         {{#if editable}}<i class="fa-solid fa-toggle-off"></i>{{/if}}
                     {{/if}}
                 </label>
@@ -42,7 +42,7 @@
                 <li>{{ system.type.label }}</li>
                 <li>
                     {{#if concealDetails}}
-                    <span>{{ localize "DND5E.Unidentified.Title" }}</span>
+                    <span>{{ localize "BLEACHD20.Unidentified.Title" }}</span>
                     {{else}}
                     <select name="system.rarity" {{~#if concealDetails}} inert{{/if}}>
                         {{selectOptions config.itemRarity selected=system.rarity blank=""}}
@@ -50,7 +50,7 @@
                     {{/if}}
                 </li>
                 <li>
-                    {{> "dnd5e.item-source"}}
+                    {{> "bleachd20.item-source"}}
                 </li>
             </ul>
         </div>
@@ -58,33 +58,33 @@
 
     {{!-- Item Sheet Navigation --}}
     <nav class="sheet-navigation tabs" data-group="primary">
-        <a class="item active" data-tab="description">{{ localize "DND5E.Description" }}</a>
-        <a class="item" data-tab="details">{{ localize "DND5E.Details" }}</a>
-        <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a>
+        <a class="item active" data-tab="description">{{ localize "BLEACHD20.Description" }}</a>
+        <a class="item" data-tab="details">{{ localize "BLEACHD20.Details" }}</a>
+        <a class="item" data-tab="effects">{{ localize "BLEACHD20.Effects" }}</a>
     </nav>
 
     {{!-- Item Sheet Body --}}
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
-        {{> "dnd5e.item-description"}}
+        {{> "bleachd20.item-description"}}
 
         {{!-- Details Tab --}}
         <div class="tab details" data-group="primary" data-tab="details">
-            {{#dnd5e-concealSection concealDetails}}
+            {{#bleachd20-concealSection concealDetails}}
 
-            <h3 class="form-header">{{ localize "DND5E.ItemToolDetails" }}</h3>
+            <h3 class="form-header">{{ localize "BLEACHD20.ItemToolDetails" }}</h3>
 
             {{!-- Tool Type --}}
             <div class="form-group">
-                <label>{{ localize "DND5E.ItemToolType" }}</label>
+                <label>{{ localize "BLEACHD20.ItemToolType" }}</label>
                 <select name="system.type.value">
                     {{selectOptions config.toolTypes selected=system.type.value blank=""}}
                 </select>
             </div>
 
             <div class="form-group">
-                <label>{{ localize "DND5E.ItemToolBase" }}</label>
+                <label>{{ localize "BLEACHD20.ItemToolBase" }}</label>
                 <select name="system.type.baseItem">
                     {{selectOptions baseItems selected=system.type.baseItem blank=""}}
                 </select>
@@ -92,7 +92,7 @@
 
             {{!-- Tool Properties --}}
             <div class="form-group stacked tool-properties">
-                <label>{{ localize "DND5E.ItemToolProperties" }}</label>
+                <label>{{ localize "BLEACHD20.ItemToolProperties" }}</label>
                 {{#each properties}}
                 <label class="checkbox">
                     <input type="checkbox" name="system.properties.{{ @key }}" {{ checked selected }}>
@@ -102,59 +102,59 @@
             </div>
 
             <div class="form-group input-select">
-                <label>{{localize "DND5E.Attunement"}}</label>
+                <label>{{localize "BLEACHD20.Attunement"}}</label>
                 <div class="form-fields">
                     <input type="checkbox" name="system.attuned" {{ checked system.attuned }}
                            {{ disabled (not system.attunement) }}
-                           data-tooltip="DND5E.Attuned" aria-label="{{ localize 'DND5E.Attuned' }}">
+                           data-tooltip="BLEACHD20.Attuned" aria-label="{{ localize 'BLEACHD20.Attuned' }}">
                     <select name="system.attunement">
                         {{selectOptions config.attunementTypes selected=system.attunement
-                                        blank=(localize "DND5E.AttunementNone")}}
+                                        blank=(localize "BLEACHD20.AttunementNone")}}
                     </select>
                 </div>
             </div>
 
             {{!-- Tool Proficiency --}}
             <div class="form-group">
-                <label>{{ localize "DND5E.ItemToolProficiency" }}</label>
+                <label>{{ localize "BLEACHD20.ItemToolProficiency" }}</label>
                 <select name="system.proficient" data-dtype="Number">
                     {{selectOptions config.proficiencyLevels selected=system.proficient
-                                    blank=(localize "DND5E.Automatic")}}
+                                    blank=(localize "BLEACHD20.Automatic")}}
                 </select>
             </div>
 
             {{!-- Ability Check --}}
             <div class="form-group">
-                <label>{{ localize "DND5E.DefaultAbilityCheck" }}</label>
+                <label>{{ localize "BLEACHD20.DefaultAbilityCheck" }}</label>
                 <select name="system.ability">
                     {{selectOptions config.abilities selected=system.ability labelAttr="label"
-                                    blank=(localize "DND5E.Default")}}
+                                    blank=(localize "BLEACHD20.Default")}}
                 </select>
             </div>
 
             {{!-- Tool Bonus --}}
             <div class="form-group">
-                <label>{{ localize "DND5E.ItemToolBonus" }}</label>
+                <label>{{ localize "BLEACHD20.ItemToolBonus" }}</label>
                 <input type="text" name="system.bonus" value="{{system.bonus}}" data-formula-editor/>
             </div>
 
-            <h3 class="form-header">{{ localize "DND5E.ItemToolUsage" }}</h3>
+            <h3 class="form-header">{{ localize "BLEACHD20.ItemToolUsage" }}</h3>
 
             {{!-- Item Activation Template --}}
-            {{> "dnd5e.item-activation"}}
+            {{> "bleachd20.item-activation"}}
 
             {{!-- Chat Message Flavor --}}
             <div class="form-group stacked">
-                <label>{{ localize "DND5E.ChatFlavor" }}</label>
+                <label>{{ localize "BLEACHD20.ChatFlavor" }}</label>
                 <input type="text" name="system.chatFlavor" value="{{system.chatFlavor}}"/>
             </div>
 
-            {{/dnd5e-concealSection}}
+            {{/bleachd20-concealSection}}
         </div>
 
         {{!-- Effects Tab --}}
         <div class="tab effects flexcol" data-group="primary" data-tab="effects">
-            {{> "dnd5e.active-effects"}}
+            {{> "bleachd20.active-effects"}}
         </div>
     </section>
 </form>

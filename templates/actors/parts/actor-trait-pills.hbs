@@ -2,12 +2,12 @@
 <div class="pills-group {{#unless values}}empty{{/unless}}">
     <h3 class="icon">
         {{#if icon}}<i class="{{ icon }}"></i>
-        {{~else if svg}}<dnd5e-icon src="systems/dnd5e/icons/svg/{{ svg }}.svg"></dnd5e-icon>{{/if}}
+        {{~else if svg}}<bleachd20-icon src="systems/bleachd20/icons/svg/{{ svg }}.svg"></bleachd20-icon>{{/if}}
         <span class="roboto-upper">{{ localize label }}</span>
         {{#if @root.editable}}
         <a class="trait-selector" data-trait="{{ key }}"
-           data-tooltip="{{ localize "DND5E.TraitConfig" trait=(localize label) }}"
-           aria-label="{{ localize "DND5E.TraitConfig" trait=(localize label) }}">
+           data-tooltip="{{ localize "BLEACHD20.TraitConfig" trait=(localize label) }}"
+           aria-label="{{ localize "BLEACHD20.TraitConfig" trait=(localize label) }}">
             <i class="fas fa-cog"></i>
         </a>
         {{/if}}

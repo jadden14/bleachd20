@@ -1,9 +1,9 @@
 <form autocomplete="off" onsubmit="event.preventDefault();">
-    {{> "dnd5e.trait-list" prefix="choices"}}
+    {{> "bleachd20.trait-list" prefix="choices"}}
 
     {{#if customPath}}
         <div class="form-group stacked">
-            <label>{{localize "DND5E.TraitSelectorSpecial"}}</label>
+            <label>{{localize "BLEACHD20.TraitSelectorSpecial"}}</label>
             <div class="form-fields">
                 <input type="text" name="{{customPath}}" value="{{custom}}">
             </div>
@@ -11,10 +11,10 @@
     {{/if}}
 
     {{#if bypassesPath}}
-        <h3>{{localize "DND5E.DamagePhysicalBypass"}}</h3>
-        <p class="note">{{localize "DND5E.DamagePhysicalBypassHint"}}</p>
-        {{> "dnd5e.trait-list" choices=bypasses prefix="bypasses"}}
+        <h3>{{localize "BLEACHD20.DamagePhysicalBypass"}}</h3>
+        <p class="note">{{localize "BLEACHD20.DamagePhysicalBypassHint"}}</p>
+        {{> "bleachd20.trait-list" choices=bypasses prefix="bypasses"}}
     {{/if}}
 
-    <button type="submit"><i class="far fa-save"></i> {{localize "DND5E.TraitSave"}}</button>
+    <button type="submit"><i class="far fa-save"></i> {{localize "BLEACHD20.TraitSave"}}</button>
 </form>

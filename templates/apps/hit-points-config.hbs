@@ -3,29 +3,29 @@
 
     <div class="hp-field form-group">
         <input type="number" class="number-lg" name="hp.max" value="{{source.max}}"
-               placeholder="{{hp.max}}" data-tooltip="DND5E.HitPointsOverride">
+               placeholder="{{hp.max}}" data-tooltip="BLEACHD20.HitPointsOverride">
     </div>
 
     <div class="form-group">
-        <label>{{localize "DND5E.HitPointsBonusLevel"}}</label>
+        <label>{{localize "BLEACHD20.HitPointsBonusLevel"}}</label>
         <input type="text" name="hp.bonuses.level" value="{{hp.bonuses.level}}">
     </div>
     <div class="form-group">
-        <label>{{localize "DND5E.HitPointsBonusOverall"}}</label>
+        <label>{{localize "BLEACHD20.HitPointsBonusOverall"}}</label>
         <input type="text" name="hp.bonuses.overall" value="{{hp.bonuses.overall}}">
     </div>
 
     {{else}}
 
     <div class="hp-field form-group">
-        <input type="number" class="number-lg" name="hp.max" value="{{ source.max }}" data-tooltip="DND5E.HitPointsMax">
+        <input type="number" class="number-lg" name="hp.max" value="{{ source.max }}" data-tooltip="BLEACHD20.HitPointsMax">
     </div>
 
     <div class="form-group">
-        <label>{{localize "DND5E.HPFormula"}}</label>
+        <label>{{localize "BLEACHD20.HPFormula"}}</label>
         <div class="form-fields">
             <input type="text" name="hp.formula" value="{{hp.formula}}">
-            <button class="roll-hit-points"><i class="fas fa-dice"></i> {{localize "DND5E.Roll"}}</button>
+            <button class="roll-hit-points"><i class="fas fa-dice"></i> {{localize "BLEACHD20.Roll"}}</button>
         </div>
     </div>
 
@@ -34,14 +34,14 @@
     <hr>
 
     <div class="form-group">
-        <label>{{ localize "DND5E.HitPointsTempShort" }}</label>
+        <label>{{ localize "BLEACHD20.HitPointsTempShort" }}</label>
         <div class="form-fields">
             {{ numberInput source.temp name="hp.temp" min=0 step=1 }}
         </div>
     </div>
 
     <div class="form-group">
-        <label>{{localize "DND5E.HitPointsTempMaxShort"}}</label>
+        <label>{{localize "BLEACHD20.HitPointsTempMaxShort"}}</label>
         <div class="form-fields">
             <input type="number" name="hp.tempmax" value="{{source.tempmax}}">
         </div>

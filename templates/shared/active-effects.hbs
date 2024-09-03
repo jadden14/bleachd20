@@ -1,17 +1,17 @@
-{{#dnd5e-concealSection concealDetails}}
+{{#bleachd20-concealSection concealDetails}}
 <{{elements.effects}} class="effects-element">
   <ol class="items-list effects-list">
     {{#each effects as |section sid|}}
     {{#unless section.hidden}}
     <li class="items-header flexrow" data-effect-type="{{section.type}}">
         <h3 class="item-name effect-name flexrow">{{localize section.label}}</h3>
-        <div class="effect-source">{{localize "DND5E.Source"}}</div>
-        <div class="effect-source">{{localize "DND5E.Duration"}}</div>
+        <div class="effect-source">{{localize "BLEACHD20.Source"}}</div>
+        <div class="effect-source">{{localize "BLEACHD20.Duration"}}</div>
         <div class="item-controls effect-controls flexrow">
             {{#if @root.editable}}
             <a class="effect-control" data-action="create" data-tooltip="{{ section.localizationPrefix }}Create"
                aria-label="{{ localize (concat section.localizationPrefix 'Create') }}">
-                <i class="fas fa-plus" aria-hidden="true"></i> {{localize "DND5E.Add"}}
+                <i class="fas fa-plus" aria-hidden="true"></i> {{localize "BLEACHD20.Add"}}
             </a>
             {{/if}}
         </div>
@@ -62,4 +62,4 @@
     {{/each}}
   </ol>
 </{{elements.effects}}>
-{{/dnd5e-concealSection}}
+{{/bleachd20-concealSection}}

@@ -1,4 +1,4 @@
-<div class="dnd5e2 chat-card item-card" data-actor-id="{{ actor.id }}" data-item-id="{{ item.id }}"
+<div class="bleachd202 chat-card item-card" data-actor-id="{{ actor.id }}" data-item-id="{{ item.id }}"
      {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}} {{#if isSpell}}data-spell-level="{{ item.system.level }}"{{/if}}>
 
     {{!-- Collapsible Item Details --}}
@@ -34,8 +34,8 @@
         {{!-- Attacks --}}
         {{#if hasAttack}}
         <button type="button" data-action="attack">
-            <i class="dnd5e-icon" data-src="systems/dnd5e/icons/svg/trait-weapon-proficiencies.svg"></i>
-            {{ localize "DND5E.Attack" }}
+            <i class="bleachd20-icon" data-src="systems/bleachd20/icons/svg/trait-weapon-proficiencies.svg"></i>
+            {{ localize "BLEACHD20.Attack" }}
         </button>
         {{/if}}
 
@@ -43,11 +43,11 @@
         {{#if hasDamage}}
         <button type="button" data-action="damage">
             {{#if isHealing}}
-            <i class="dnd5e-icon" data-src="systems/dnd5e/icons/svg/damage/healing.svg"></i>
-            {{ localize "DND5E.Healing" }}
+            <i class="bleachd20-icon" data-src="systems/bleachd20/icons/svg/damage/healing.svg"></i>
+            {{ localize "BLEACHD20.Healing" }}
             {{else}}
             <i class="fas fa-burst"></i>
-            {{ localize "DND5E.Damage" }}
+            {{ localize "BLEACHD20.Damage" }}
             {{/if}}
         </button>
         {{/if}}
@@ -55,8 +55,8 @@
         {{!-- Versatile --}}
         {{#if isVersatile}}
         <button type="button" data-action="versatile">
-            <i class="dnd5e-icon" data-src="systems/dnd5e/icons/svg/versatile.svg"></i>
-            {{ localize "DND5E.Versatile" }}
+            <i class="bleachd20-icon" data-src="systems/bleachd20/icons/svg/versatile.svg"></i>
+            {{ localize "BLEACHD20.Versatile" }}
         </button>
         {{/if}}
 
@@ -66,8 +66,8 @@
         <button type="button" data-action="save" data-ability="{{ ability }}" data-dc="{{ dc }}">
             <i class="fas fa-shield-heart"></i>
             {{#with (lookup (lookup @root.config.abilities ability) "label") as |abilityLabel|}}
-            <span class="visible-dc">{{ localize "DND5E.SavingThrowDC" dc=../dc ability=abilityLabel }}</span>
-            <span class="hidden-dc">{{ localize "DND5E.SavePromptTitle" ability=abilityLabel }}</span>
+            <span class="visible-dc">{{ localize "BLEACHD20.SavingThrowDC" dc=../dc ability=abilityLabel }}</span>
+            <span class="hidden-dc">{{ localize "BLEACHD20.SavePromptTitle" ability=abilityLabel }}</span>
             {{/with}}
         </button>
         {{/with}}
@@ -77,7 +77,7 @@
         {{#if item.system.formula}}
         <button type="button" data-action="formula">
             <i class="fas fa-ellipsis"></i>
-            {{ localize "DND5E.OtherFormula"}}
+            {{ localize "BLEACHD20.OtherFormula"}}
         </button>
         {{/if}}
 
@@ -85,7 +85,7 @@
         {{#if hasAreaTarget}}
         <button type="button" data-action="placeTemplate">
             <i class="fas fa-bullseye"></i>
-            {{ localize "DND5E.PlaceTemplate" }}
+            {{ localize "BLEACHD20.PlaceTemplate" }}
         </button>
         {{/if}}
 
@@ -93,7 +93,7 @@
         {{#if item.system.hasSummoning}}
         <button type="button" data-action="summon">
             <i class="fa-solid fa-spaghetti-monster-flying"></i>
-            {{ localize "DND5E.Summoning.Action.Summon" }}
+            {{ localize "BLEACHD20.Summoning.Action.Summon" }}
         </button>
         {{/if}}
 
@@ -101,14 +101,14 @@
         {{#if isTool}}
         <button type="button" data-action="toolCheck" data-ability="{{ item.system.ability }}">
             <i class="fas fa-hammer"></i>
-            {{ localize "DND5E.UseItem" item=item.name }}
+            {{ localize "BLEACHD20.UseItem" item=item.name }}
         </button>
         {{/if}}
 
         {{!-- Ability Check --}}
         {{#if hasAbilityCheck}}
         <button type="button" data-action="abilityCheck" data-ability="{{ item.system.ability }}">
-            <i class="dnd5e-icon" data-src="systems/dnd5e/icons/svg/ability-score-improvement.svg"></i>
+            <i class="bleachd20-icon" data-src="systems/bleachd20/icons/svg/ability-score-improvement.svg"></i>
             {{ labels.abilityCheck }}
         </button>
         {{/if}}
@@ -117,7 +117,7 @@
         {{#if consumeUsage}}
         <button type="button" data-action="consumeUsage">
             <i class="fa-solid fa-xmarks-lines" inert></i>
-            {{ localize "DND5E.AbilityUseConsumeAction" }}
+            {{ localize "BLEACHD20.AbilityUseConsumeAction" }}
         </button>
         {{/if}}
 
@@ -125,7 +125,7 @@
         {{#if consumeResource}}
         <button type="button" data-action="consumeResource">
             <i class="fa-solid fa-cubes-stacked" inert></i>
-            {{ localize "DND5E.ConsumeResourceAction" }}
+            {{ localize "BLEACHD20.ConsumeResourceAction" }}
         </button>
         {{/if}}
     </div>
@@ -133,12 +133,12 @@
 
     {{!-- Reactions --}}
     {{#if (and data.activation.condition (eq data.activation.type "reaction"))}}
-    <p class="supplement"><strong>{{ localize "DND5E.Reaction" }}</strong>{{ data.activation.condition }}</p>
+    <p class="supplement"><strong>{{ localize "BLEACHD20.Reaction" }}</strong>{{ data.activation.condition }}</p>
     {{/if}}
 
     {{!-- Materials --}}
     {{#if data.materials.value}}
-    <p class="supplement"><strong>{{ localize "DND5E.Materials" }}</strong>{{ data.materials.value }}</p>
+    <p class="supplement"><strong>{{ localize "BLEACHD20.Materials" }}</strong>{{ data.materials.value }}</p>
     {{/if}}
 
     {{!-- Item Properties --}}
@@ -161,7 +161,7 @@
     <div class="card-tray effects-tray collapsible collapsed">
         <label class="roboto-upper">
             <i class="fas fa-bolt"></i>
-            <span>{{ localize "DND5E.Effects" }}</span>
+            <span>{{ localize "BLEACHD20.Effects" }}</span>
             <i class="fas fa-caret-down"></i>
         </label>
         <div class="collapsible-content">
@@ -174,7 +174,7 @@
                         <span class="subtitle">{{ duration.label }}</span>
                     </div>
                     <button type="button" class="apply-effect" data-action="applyEffect"
-                            data-tooltip="DND5E.EffectsApplyTokens" aria-label="{{ localize "DND5E.EffectsApplyTokens" }}">
+                            data-tooltip="BLEACHD20.EffectsApplyTokens" aria-label="{{ localize "BLEACHD20.EffectsApplyTokens" }}">
                         <i class="fas fa-reply-all fa-flip-horizontal"></i>
                     </button>
                 </li>

@@ -10,13 +10,13 @@
     {{!-- Ideals, Bonds, & Flaws --}}
     <div class="top flexrow">
 
-        {{~> "dnd5e.biography-textbox" name="system.details.ideal" value=system.details.ideal label="DND5E.Ideals"
+        {{~> "bleachd20.biography-textbox" name="system.details.ideal" value=system.details.ideal label="BLEACHD20.Ideals"
             icon="fas fa-seedling" ~}}
 
-        {{~> "dnd5e.biography-textbox" name="system.details.bond" value=system.details.bond label="DND5E.Bonds"
+        {{~> "bleachd20.biography-textbox" name="system.details.bond" value=system.details.bond label="BLEACHD20.Bonds"
             icon="fas fa-link" ~}}
 
-        {{~> "dnd5e.biography-textbox" name="system.details.flaw" value=system.details.flaw label="DND5E.Flaws"
+        {{~> "bleachd20.biography-textbox" name="system.details.flaw" value=system.details.flaw label="BLEACHD20.Flaws"
             icon="fas fa-heart-crack" ~}}
 
     </div>
@@ -26,11 +26,11 @@
 
         <h3 class="icon">
             <a class="editor-edit" data-action="editDescription"
-               aria-label="{{ localize "DND5E.BiographyPublicEdit" }}">
+               aria-label="{{ localize "BLEACHD20.BiographyPublicEdit" }}">
                 <i class="fas fa-feather"></i>
             </a>
-            <dnd5e-icon src="systems/dnd5e/icons/svg/ink-pot.svg"></dnd5e-icon>
-            <span class="roboto-upper">{{ localize "DND5E.Public" }}</span>
+            <bleachd20-icon src="systems/bleachd20/icons/svg/ink-pot.svg"></bleachd20-icon>
+            <span class="roboto-upper">{{ localize "BLEACHD20.Public" }}</span>
         </h3>
 
         <div class="editor">
@@ -43,11 +43,11 @@
     <div class="bottom" data-target="system.details.biography.value">
 
         <h3 class="icon">
-            <a class="editor-edit" data-action="editDescription" aria-label="{{ localize "DND5E.DetailsEdit" }}">
+            <a class="editor-edit" data-action="editDescription" aria-label="{{ localize "BLEACHD20.DetailsEdit" }}">
                 <i class="fas fa-feather"></i>
             </a>
-            <dnd5e-icon src="systems/dnd5e/icons/svg/ink-pot.svg"></dnd5e-icon>
-            <span class="roboto-upper">{{ localize "DND5E.Details" }}</span>
+            <bleachd20-icon src="systems/bleachd20/icons/svg/ink-pot.svg"></bleachd20-icon>
+            <span class="roboto-upper">{{ localize "BLEACHD20.Details" }}</span>
         </h3>
 
         <div class="editor">

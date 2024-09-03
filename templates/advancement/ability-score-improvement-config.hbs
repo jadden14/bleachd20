@@ -1,21 +1,21 @@
 <form autocomplete="off" data-id="{{_id}}" data-type="{{type}}">
-    {{> "dnd5e.advancement-controls"}}
+    {{> "bleachd20.advancement-controls"}}
     <div class="form-group">
-        <label>{{localize "DND5E.AdvancementAbilityScoreImprovementCap"}}</label>
+        <label>{{localize "BLEACHD20.AdvancementAbilityScoreImprovementCap"}}</label>
         <div class="form-fields">
             <input type="number" name="configuration.cap" value="{{configuration.cap}}" min="1" step="1"
                          placeholder="{{localize 'None'}}">
         </div>
-        <p class="hint">{{localize "DND5E.AdvancementAbilityScoreImprovementCapHint"}}</p>
+        <p class="hint">{{localize "BLEACHD20.AdvancementAbilityScoreImprovementCapHint"}}</p>
     </div>
 
     <ul class="ability-scores">
-        {{> "dnd5e.advancement-ability-score-control" points canAdjust=true}}
+        {{> "bleachd20.advancement-ability-score-control" points canAdjust=true}}
         <li class="hint">
-            {{localize "DND5E.AdvancementAbilityScoreImprovementPointsHint"}}
+            {{localize "BLEACHD20.AdvancementAbilityScoreImprovementPointsHint"}}
         </li>
         {{#each abilities}}
-        {{> "dnd5e.advancement-ability-score-control" this canAdjust=true}}
+        {{> "bleachd20.advancement-ability-score-control" this canAdjust=true}}
         {{/each}}
     </ul>
 </form>
