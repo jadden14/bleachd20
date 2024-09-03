@@ -1,38 +1,38 @@
 {
-    "id": "dnd5e",
-    "title": "Dungeons & Dragons Fifth Edition",
-    "description": "A system for playing the fifth edition of the world's most popular role-playing game in the Foundry Virtual Tabletop environment.",
-    "version": "3.3.1",
+    "id": "bleachd20",
+    "title": "Bleach fifth edition",
+    "description": "A System incorporating the Bleach 5e implementation into FTT",
+    "version": "1.0.0",
     "compatibility": {
         "minimum": "11.315",
         "verified": "12"
     },
-    "url": "https://github.com/foundryvtt/dnd5e/",
-    "manifest": "https://raw.githubusercontent.com/foundryvtt/dnd5e/master/system.json",
-    "download": "https://github.com/foundryvtt/dnd5e/releases/download/release-3.3.1/dnd5e-release-3.3.1.zip",
+    "url": "https://github.com/jadden14/bleachd20",
+    "manifest": "https://raw.githubusercontent.com/jadden14/bleachd20/main/system.json",
+    "download": "https://github.com/jadden14/bleachd20/archive/refs/heads/main.zip",
     "authors": [
         {
-            "name": "Atropos",
-            "url": "https://foundryvtt.com",
+            "name": "Godofwar1401",
+            "url": "",
             "flags": {}
         }
     ],
     "esmodules": [
-        "dnd5e.mjs"
+        "bleachd20.mjs"
     ],
     "styles": [
-        "dnd5e.css"
+        "bleachd20.css"
     ],
     "packs": [
         {
             "name": "heroes",
             "label": "Starter Heroes",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/heroes",
             "type": "Actor",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "character"
                     ]
@@ -42,12 +42,12 @@
         {
             "name": "monsters",
             "label": "Monsters (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/monsters",
             "type": "Actor",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "npc"
                     ]
@@ -57,12 +57,12 @@
         {
             "name": "items",
             "label": "Items (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/items",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "weapon",
                         "equipment",
@@ -78,12 +78,12 @@
         {
             "name": "tradegoods",
             "label": "Trade Goods (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/tradegoods",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "loot"
                     ]
@@ -93,12 +93,12 @@
         {
             "name": "spells",
             "label": "Spells (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/spells",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "spell"
                     ]
@@ -108,12 +108,12 @@
         {
             "name": "backgrounds",
             "label": "Backgrounds (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/backgrounds",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "background",
                         "feat"
@@ -124,12 +124,12 @@
         {
             "name": "classes",
             "label": "Classes (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/classes",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "class"
                     ]
@@ -139,12 +139,12 @@
         {
             "name": "subclasses",
             "label": "Subclasses (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/subclasses",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "subclass"
                     ]
@@ -154,12 +154,12 @@
         {
             "name": "classfeatures",
             "label": "Class & Subclass Features (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/classfeatures",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "feat",
                         "weapon"
@@ -170,12 +170,12 @@
         {
             "name": "races",
             "label": "Races (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/races",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "race",
                         "feat"
@@ -186,12 +186,12 @@
         {
             "name": "monsterfeatures",
             "label": "Monster Features (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/monsterfeatures",
             "type": "Item",
             "private": false,
             "flags": {
-                "dnd5e": {
+                "bleachd20": {
                     "types": [
                         "feat",
                         "weapon"
@@ -202,7 +202,7 @@
         {
             "name": "rules",
             "label": "Rules (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/rules",
             "type": "JournalEntry",
             "private": false,
@@ -213,7 +213,7 @@
         {
             "name": "tables",
             "label": "Tables (SRD)",
-            "system": "dnd5e",
+            "system": "bleachd20",
             "path": "packs/tables",
             "type": "RollTable",
             "private": false,
@@ -281,8 +281,8 @@
         },
         {
             "type": "setup",
-            "url": "systems/dnd5e/ui/official/dnd5e-repo.jpg",
-            "thumbnail": "systems/dnd5e/ui/official/dnd5e-thumbnail.jpg"
+            "url": "systems/bleachd20/ui/official/bleachd20-repo.jpg",
+            "thumbnail": "systems/bleachd20/ui/official/bleachd20-thumbnail.jpg"
         }
     ],
     "socket": true,
@@ -293,7 +293,7 @@
         "units": "ft"
     },
     "primaryTokenAttribute": "attributes.hp",
-    "background": "systems/dnd5e/ui/official/dnd5e-background.webp",
+    "background": "systems/bleachd20/ui/official/bleachd20-background.webp",
     "flags": {
         "needsMigrationVersion": "3.1.0",
         "compatibleMigrationVersion": "0.8",
