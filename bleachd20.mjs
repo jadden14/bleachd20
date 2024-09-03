@@ -26503,7 +26503,10 @@ BLEACHD20.movementTypes = {
   climb: "BLEACHD20.MovementClimb",
   fly: "BLEACHD20.MovementFly",
   swim: "BLEACHD20.MovementSwim",
-  walk: "BLEACHD20.MovementWalk"
+  walk: "BLEACHD20.MovementWalk",
+  shunpo: "BLEACHD20.MovementShunpo",
+  hirenkyaku: "BLEACHD20.MovementHirenkyaku",
+  sonido: "BLEACHD20.MovementSonido"
 };
 preLocalize("movementTypes", { sort: true });
 
@@ -29919,7 +29922,10 @@ class ActorMovementConfig extends BaseConfigSheet {
       burrow: "BLEACHD20.MovementBurrow",
       climb: "BLEACHD20.MovementClimb",
       fly: "BLEACHD20.MovementFly",
-      swim: "BLEACHD20.MovementSwim"
+      swim: "BLEACHD20.MovementSwim",
+	  shunpo: "BLEACHD20.MovementShunpo",
+      hirenkyaku: "BLEACHD20.MovementHirenkyaku",
+      sonido: "BLEACHD20.MovementSonido"
     };
 
     return {
@@ -30981,7 +30987,10 @@ class ActorSheet5e extends ActorSheetMixin(ActorSheet) {
       [movement.burrow, `${game.i18n.localize("BLEACHD20.MovementBurrow")} ${movement.burrow}`],
       [movement.climb, `${game.i18n.localize("BLEACHD20.MovementClimb")} ${movement.climb}`],
       [movement.fly, `${game.i18n.localize("BLEACHD20.MovementFly")} ${movement.fly}${movement.hover ? ` (${game.i18n.localize("BLEACHD20.MovementHover")})` : ""}`],
-      [movement.swim, `${game.i18n.localize("BLEACHD20.MovementSwim")} ${movement.swim}`]
+      [movement.swim, `${game.i18n.localize("BLEACHD20.MovementSwim")} ${movement.swim}`],
+      [movement.shunpo, `${game.i18n.localize("BLEACHD20.MovementShunpo")} ${movement.shunpo}`],
+      [movement.hirenkyaku, `${game.i18n.localize("BLEACHD20.MovementHirenkyaku")} ${movement.hirenkyaku}`],
+      [movement.sonido, `${game.i18n.localize("BLEACHD20.MovementSonido")} ${movement.sonido}`]
     ];
     if ( largestPrimary ) {
       speeds.push([movement.walk, `${game.i18n.localize("BLEACHD20.MovementWalk")} ${movement.walk}`]);
@@ -32573,6 +32582,9 @@ class MovementField extends foundry.data.fields.SchemaField {
       fly: new foundry.data.fields.NumberField({ ...numberConfig, label: "BLEACHD20.MovementFly" }),
       swim: new foundry.data.fields.NumberField({ ...numberConfig, label: "BLEACHD20.MovementSwim" }),
       walk: new foundry.data.fields.NumberField({ ...numberConfig, label: "BLEACHD20.MovementWalk" }),
+      shunpo: new foundry.data.fields.NumberField({ ...numberConfig, label: "BLEACHD20.MovementShunpo" }),
+      hirenkyaku: new foundry.data.fields.NumberField({ ...numberConfig, label: "BLEACHD20.MovementHirenkyaku" }),
+      sonido: new foundry.data.fields.NumberField({ ...numberConfig, label: "BLEACHD20.MovementSonido" }),
       units: new foundry.data.fields.StringField({
         required: true, nullable: true, blank: false, initial: null, label: "BLEACHD20.MovementUnits"
       }),
@@ -32623,6 +32635,9 @@ class AttributesFields {
    * @property {number} movement.fly     Actor flying speed.
    * @property {number} movement.swim    Actor swimming speed.
    * @property {number} movement.walk    Actor walking speed.
+   * @property {number} movement.shunpo  Actor shunpo speed.
+   * @property {number} movement.hirenkyaku  Actor hirenkyaku speed.
+   * @property {number} movement.sonido  Actor sonido speed.   
    * @property {string} movement.units   Movement used to measure the various speeds.
    * @property {boolean} movement.hover  Is this flying creature able to hover in place.
    */
