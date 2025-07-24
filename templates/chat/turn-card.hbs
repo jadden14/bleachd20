@@ -1,0 +1,13 @@
+<div class="bleachd202 chat-card turn-card">
+    {{#if actor}}
+
+    {{!-- Deltas --}}
+    {{#if deltas.length}}{{> "bleachd20.card-deltas" }}{{/if}}
+
+    {{!-- Actions --}}
+    {{#if activities.length}}{{> "bleachd20.card-activities" }}{{/if}}
+
+    {{else}}
+    <p>{{ localize "BLEACHD20.CHATMESSAGE.TURN.NoCombatant" }}</p>
+    {{/if}}
+</div>

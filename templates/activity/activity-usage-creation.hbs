@@ -1,0 +1,11 @@
+<section>
+    {{~#if hasCreation}}
+    <fieldset>
+        <legend>{{ localize "BLEACHD20.USAGE.SECTION.Creation" }}</legend>
+        {{#if template}}
+            {{ formField template.field name=template.name value=template.value input=inputs.createCheckboxInput }}
+        {{/if}}
+    </fieldset>
+    {{> "bleachd20.activity-usage-notes" }}
+    {{/if~}}
+</section>

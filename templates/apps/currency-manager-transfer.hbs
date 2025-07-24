@@ -1,0 +1,28 @@
+<section class="tab {{ tab.cssClass }}" data-group="primary" data-tab="transfer">
+    <section class="currency">
+        <button type="button" data-action="setAll">{{ localize "BLEACHD20.CurrencyManager.Transfer.All" }}</button>
+        <button type="button" data-action="setHalf">{{ localize "BLEACHD20.CurrencyManager.Transfer.Half" }}</button>
+        {{#each currency}}
+        <label>
+            {{#with (lookup @root.CONFIG.currencies @key) as |currency|}}
+            <i class="currency {{ @key }}" data-tooltip aria-label="{{ lookup currency 'label' }}"></i>
+            {{/with}}
+            {{ numberInput null name=(concat "amount." @key) step=1 }}
+        </label>
+        {{/each}}
+    </section>
+    <div class="destinations">
+        {{#each destinations}}
+        <label>
+            <bleachd20-checkbox name="destination.{{ doc.id }}"></bleachd20-checkbox>
+            {{{ icon }}} {{ doc.name }}
+        </label>
+        {{else}}
+        <p class="no-destinations">{{ localize "BLEACHD20.Award.NoDestinations" }}</p>
+        {{/each}}
+    </div>
+    <button type="submit" name="transfer" disabled>
+        <i class="fa-solid fa-reply-all fa-flip-horizontal" inert></i>
+        {{ localize "BLEACHD20.CurrencyManager.Transfer.Action" }}
+    </button>
+</section>

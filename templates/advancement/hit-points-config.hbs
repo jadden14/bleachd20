@@ -1,7 +1,15 @@
-<form autocomplete="off">
-    {{> "bleachd20.advancement-controls"}}
+<fieldset>
+    <legend>{{ localize "BLEACHD20.HitPoints" }}</legend>
     <div class="form-group">
-        <label>{{localize "BLEACHD20.HitDie"}}</label>
-        <span class="form-field-readonly">{{hitDie}}</span>
+        <label>{{ localize "BLEACHD20.HitDie" }}</label>
+        <span class="form-field-readonly">{{ hitDie }}</span>
     </div>
-</form>
+    <div class="form-group">
+        <label>{{ localize "BLEACHD20.ADVANCEMENT.HitPoints.Starting" }}</label>
+        <span class="form-field-readonly">{{ advancement.hitDieValue }}</span>
+    </div>
+    <div class="form-group">
+        <label>{{ localize "BLEACHD20.ADVANCEMENT.HitPoints.Average" }}</label>
+        <span class="form-field-readonly">{{ advancement.average }}</span>
+    </div>
+</fieldset>

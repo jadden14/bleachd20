@@ -1,0 +1,18 @@
+<fieldset>
+    <legend>{{ localize "BLEACHD20.SOURCE.FIELDS.source.label" }}</legend>
+    <div class="form-group">
+        <label>{{ localize "BLEACHD20.SOURCE.FIELDS.source.book.label" }}</label>
+        <div class="form-fields">
+            <input type="text" name="source.book" value="{{ source.book }}" list="{{ partId }}-books">
+            <datalist id="{{ partId }}-books">
+                {{selectOptions CONFIG.sourceBooks}}
+            </datalist>
+        </div>
+    </div>
+    {{ formField fields.source.fields.page name="source.page" value=source.page
+                 label="BLEACHD20.SOURCE.FIELDS.source.page.label" localize=true rootId=partId }}
+    {{ formField fields.source.fields.custom name="source.custom" value=source.custom
+                 label="BLEACHD20.SOURCE.FIELDS.source.custom.label" localize=true rootId=partId }}
+    {{ formField fields.source.fields.uuid name="source.uuid" value=source.uuid
+                 label="BLEACHD20.SOURCE.FIELDS.source.uuid.label" localize=true rootId=partId }}
+</fieldset>

@@ -1,0 +1,13 @@
+<fieldset>
+    <ul class="ability-scores unlist">
+        {{> "systems/bleachd20/templates/advancement/parts/advancement-ability-score-control-v2.hbs" points
+            canAdjust=true }}
+        <li class="hint">
+            {{ localize "BLEACHD20.ADVANCEMENT.AbilityScoreImprovement.FIELDS.points.hint" }}
+        </li>
+        {{#each abilities}}
+        {{> "systems/bleachd20/templates/advancement/parts/advancement-ability-score-control-v2.hbs" this canAdjust=true
+            canLock=true }}
+        {{/each}}
+    </ul>
+</fieldset>

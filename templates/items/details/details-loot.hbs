@@ -1,0 +1,18 @@
+<fieldset>
+    <legend>{{ localize "BLEACHD20.ItemLootDetails" }}</legend>
+
+    {{!-- Loot Type --}}
+    {{ formField fields.type.fields.value label="BLEACHD20.ItemLootType" value=source.type.value choices=CONFIG.lootTypes
+                 labelAttr="label" blank="" localize=true }}
+
+    {{!-- Loot Subtype --}}
+    {{#if itemSubtypes}}
+    {{ formField fields.type.fields.subtype value=source.type.subtype choices=itemSubtypes blank=""
+                 label=(localize "BLEACHD20.ItemLootSubtype" category=(lookup (lookup CONFIG.lootTypes source.type.value) "label")) }}
+    {{/if}}
+
+    {{!-- Loot Properties --}}
+    {{ formField fields.properties options=properties.options label="BLEACHD20.ItemLootProperties" localize=true
+                 input=inputs.createMultiCheckboxInput stacked=true classes="checkbox-grid" }}
+
+</fieldset>

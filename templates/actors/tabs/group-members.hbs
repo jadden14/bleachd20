@@ -12,12 +12,12 @@
     </li>
     <li>
         <button type="button" class="action-button rest-button" data-action="shortRest">
-            <i class="fa-solid fa-utensils" inert></i> {{localize "BLEACHD20.ShortRest"}}
+            <i class="fa-solid fa-utensils" inert></i> {{localize "BLEACHD20.REST.Short.Label"}}
         </button>
     </li>
     <li>
         <button type="button" class="action-button rest-button" data-action="longRest">
-            <i class="fa-solid fa-campground" inert></i> {{localize "BLEACHD20.LongRest"}}
+            <i class="fa-solid fa-campground" inert></i> {{localize "BLEACHD20.REST.Long.Label"}}
         </button>
     </li>
 </menu>
@@ -82,7 +82,7 @@
             {{#if section.displayChallengeColumn}}
             <div class="challenge">
                 <abbr>{{localize "BLEACHD20.AbbreviationCR"}}</abbr> {{member.cr}}{{#if member.xp}} —
-                {{member.xp}} <abbr>{{localize "BLEACHD20.ExperiencePointsAbbr"}}</abbr>{{/if}}
+                {{member.xp}} <abbr>{{localize "BLEACHD20.ExperiencePoints.Abbreviation"}}</abbr>{{/if}}
             </div>
             {{/if}}
             <div class="controls">

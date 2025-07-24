@@ -1,26 +1,27 @@
-<div>
-    <div class="step">
-        <h1>{{header}}</h1>
-        <h2>{{subheader}}</h2>
-
-        <template id="{{flowId}}"></template>
+<div class="flexcol">
+    <div class="step {{ flowClasses }}">
+        <template id="{{ flowId }}"></template>
     </div>
-    <nav>
+    <nav class="flexrow">
         {{#if steps.hasPrevious}}
         <button type="button" data-action="previous">
-            <i class="fas fa-angle-double-left"></i> {{localize "BLEACHD20.AdvancementManagerPreviousStep"}}
+            <i class="fas fa-angle-double-left" inert></i>
+            {{ localize "BLEACHD20.ADVANCEMENT.Manager.Action.PreviousStep" }}
         </button>
         <button type="button" data-action="restart">
-            <i class="fas fa-undo"></i> {{localize "BLEACHD20.AdvancementManagerRestart"}}
+            <i class="fas fa-undo" inert></i>
+            {{ localize "BLEACHD20.ADVANCEMENT.Manager.Action.Restart" }}
         </button>
         {{/if}}
         {{#if steps.hasNext}}
         <button type="button" data-action="next">
-            <i class="fas fa-angle-double-right"></i> {{localize "BLEACHD20.AdvancementManagerNextStep"}}
+            <i class="fas fa-angle-double-right" inert></i>
+            {{ localize "BLEACHD20.ADVANCEMENT.Manager.Action.NextStep" }}
         </button>
         {{else}}
         <button type="button" data-action="complete">
-            <i class="fas fa-check"></i> {{localize "BLEACHD20.AdvancementManagerComplete"}}
+            <i class="fas fa-check" inert></i>
+            {{ localize "BLEACHD20.ADVANCEMENT.Manager.Action.Complete" }}
         </button>
         {{/if}}
     </nav>

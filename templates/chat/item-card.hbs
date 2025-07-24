@@ -2,17 +2,16 @@
      {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}} {{#if isSpell}}data-spell-level="{{ item.system.level }}"{{/if}}>
 
     {{!-- Collapsible Item Details --}}
-    <section class="card-header description collapsible">
+    <section class="card-header description collapsible" {{#if data.description.concealed}}data-concealed{{/if}}>
 
         {{!-- Summary --}}
         <header class="summary">
             <img class="gold-icon" src="{{ item.img }}" alt="{{ item.name }}">
             <div class="name-stacked border">
                 <span class="title">{{ item.name }}</span>
-                {{#if (or data.subtitle item.system.chatFlavor)}}
+                {{#if data.subtitle}}
                 <span class="subtitle">
-                    {{#if item.system.chatFlavor}}{{ item.system.chatFlavor }}
-                    {{else}}{{{ data.subtitle }}}{{/if}}
+                    {{{ data.subtitle }}}
                 </span>
                 {{/if}}
             </div>
@@ -26,115 +25,6 @@
             </div>
         </section>
     </section>
-
-    {{!-- Item Actions --}}
-    {{#if hasButtons}}
-    <div class="card-buttons">
-
-        {{!-- Attacks --}}
-        {{#if hasAttack}}
-        <button type="button" data-action="attack">
-            <i class="bleachd20-icon" data-src="systems/bleachd20/icons/svg/trait-weapon-proficiencies.svg"></i>
-            {{ localize "BLEACHD20.Attack" }}
-        </button>
-        {{/if}}
-
-        {{!-- Damage / Healing --}}
-        {{#if hasDamage}}
-        <button type="button" data-action="damage">
-            {{#if isHealing}}
-            <i class="bleachd20-icon" data-src="systems/bleachd20/icons/svg/damage/healing.svg"></i>
-            {{ localize "BLEACHD20.Healing" }}
-            {{else}}
-            <i class="fas fa-burst"></i>
-            {{ localize "BLEACHD20.Damage" }}
-            {{/if}}
-        </button>
-        {{/if}}
-
-        {{!-- Versatile --}}
-        {{#if isVersatile}}
-        <button type="button" data-action="versatile">
-            <i class="bleachd20-icon" data-src="systems/bleachd20/icons/svg/versatile.svg"></i>
-            {{ localize "BLEACHD20.Versatile" }}
-        </button>
-        {{/if}}
-
-        {{!-- Saving Throw --}}
-        {{#if hasSave}}
-        {{#with item.system.save}}
-        <button type="button" data-action="save" data-ability="{{ ability }}" data-dc="{{ dc }}">
-            <i class="fas fa-shield-heart"></i>
-            {{#with (lookup (lookup @root.config.abilities ability) "label") as |abilityLabel|}}
-            <span class="visible-dc">{{ localize "BLEACHD20.SavingThrowDC" dc=../dc ability=abilityLabel }}</span>
-            <span class="hidden-dc">{{ localize "BLEACHD20.SavePromptTitle" ability=abilityLabel }}</span>
-            {{/with}}
-        </button>
-        {{/with}}
-        {{/if}}
-
-        {{!-- Other Formula --}}
-        {{#if item.system.formula}}
-        <button type="button" data-action="formula">
-            <i class="fas fa-ellipsis"></i>
-            {{ localize "BLEACHD20.OtherFormula"}}
-        </button>
-        {{/if}}
-
-        {{!-- Templates --}}
-        {{#if hasAreaTarget}}
-        <button type="button" data-action="placeTemplate">
-            <i class="fas fa-bullseye"></i>
-            {{ localize "BLEACHD20.PlaceTemplate" }}
-        </button>
-        {{/if}}
-
-        {{!-- Summoning --}}
-        {{#if item.system.hasSummoning}}
-        <button type="button" data-action="summon">
-            <i class="fa-solid fa-spaghetti-monster-flying"></i>
-            {{ localize "BLEACHD20.Summoning.Action.Summon" }}
-        </button>
-        {{/if}}
-
-        {{!-- Tool Check --}}
-        {{#if isTool}}
-        <button type="button" data-action="toolCheck" data-ability="{{ item.system.ability }}">
-            <i class="fas fa-hammer"></i>
-            {{ localize "BLEACHD20.UseItem" item=item.name }}
-        </button>
-        {{/if}}
-
-        {{!-- Ability Check --}}
-        {{#if hasAbilityCheck}}
-        <button type="button" data-action="abilityCheck" data-ability="{{ item.system.ability }}">
-            <i class="bleachd20-icon" data-src="systems/bleachd20/icons/svg/ability-score-improvement.svg"></i>
-            {{ labels.abilityCheck }}
-        </button>
-        {{/if}}
-
-        {{!-- Consume Use --}}
-        {{#if consumeUsage}}
-        <button type="button" data-action="consumeUsage">
-            <i class="fa-solid fa-xmarks-lines" inert></i>
-            {{ localize "BLEACHD20.AbilityUseConsumeAction" }}
-        </button>
-        {{/if}}
-
-        {{!-- Consume Resource --}}
-        {{#if consumeResource}}
-        <button type="button" data-action="consumeResource">
-            <i class="fa-solid fa-cubes-stacked" inert></i>
-            {{ localize "BLEACHD20.ConsumeResourceAction" }}
-        </button>
-        {{/if}}
-    </div>
-    {{/if}}
-
-    {{!-- Reactions --}}
-    {{#if (and data.activation.condition (eq data.activation.type "reaction"))}}
-    <p class="supplement"><strong>{{ localize "BLEACHD20.Reaction" }}</strong>{{ data.activation.condition }}</p>
-    {{/if}}
 
     {{!-- Materials --}}
     {{#if data.materials.value}}
@@ -156,30 +46,4 @@
         {{/each}}
     </ul>
     {{/if}}
-
-    {{!-- Applicable Effects --}}
-    <div class="card-tray effects-tray collapsible collapsed">
-        <label class="roboto-upper">
-            <i class="fas fa-bolt"></i>
-            <span>{{ localize "BLEACHD20.Effects" }}</span>
-            <i class="fas fa-caret-down"></i>
-        </label>
-        <div class="collapsible-content">
-            <ul class="effects unlist wrapper">
-                {{~#each effects~}}
-                <li class="effect" data-effect-id="{{ id }}" data-uuid="{{ uuid }}" data-transferred="{{ transfer }}">
-                    <img class="gold-icon" alt="{{ name }}" src="{{ img }}">
-                    <div class="name-stacked">
-                        <span class="title">{{ name }}</span>
-                        <span class="subtitle">{{ duration.label }}</span>
-                    </div>
-                    <button type="button" class="apply-effect" data-action="applyEffect"
-                            data-tooltip="BLEACHD20.EffectsApplyTokens" aria-label="{{ localize "BLEACHD20.EffectsApplyTokens" }}">
-                        <i class="fas fa-reply-all fa-flip-horizontal"></i>
-                    </button>
-                </li>
-                {{~/each~}}
-            </ul>
-        </div>
-    </div>
 </div>

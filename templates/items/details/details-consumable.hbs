@@ -1,0 +1,59 @@
+<fieldset>
+    <legend>{{ localize "BLEACHD20.ItemConsumableDetails" }}</legend>
+
+    {{!-- Consumable Type --}}
+    {{ formField fields.type.fields.value value=source.type.value choices=CONFIG.consumableTypes labelAttr="label"
+                 label="BLEACHD20.ItemConsumableType" localize=true }}
+
+    {{!-- Consumable Sub-Type --}}
+    {{#if itemSubtypes}}
+    {{ formField fields.type.fields.subtype value=source.type.subtype choices=itemSubtypes blank="" localize=true
+                 label=(localize "BLEACHD20.ItemConsumableSubtype" category=(lookup (lookup CONFIG.consumableTypes source.type.value) "label")) }}
+    {{/if}}
+
+    {{!-- Consumable Properties --}}
+    {{ formField fields.properties options=properties.options localize=true input=inputs.createMultiCheckboxInput
+                 stacked=true classes="checkbox-grid checkbox-grid-3"
+                 label=(ifThen (eq source.type.value "ammo") "BLEACHD20.ItemAmmoProperties" "BLEACHD20.ItemConsumableProperties") }}
+
+    {{!-- Magical Properties --}}
+    {{#if properties.object.mgc}}
+    <div class="form-group split-group">
+        <label>{{ localize "BLEACHD20.ITEM.Property.Magical" }}</label>
+        <div class="form-fields">
+
+            {{!-- Attunement --}}
+            <div class="form-group label-top">
+                <label>{{ localize "BLEACHD20.Attunement" }}</label>
+                <div class="form-fields">
+
+                    {{!-- Attuned --}}
+                    {{#if source.attunement}}
+                    {{ formInput fields.attuned value=source.attuned input=inputs.createCheckboxInput
+                                 ariaLabel=(localize "BLEACHD20.Attuned") dataset=(bleachd20-object tooltip="BLEACHD20.Attuned") }}
+                    {{/if}}
+
+                    {{!-- Attunement --}}
+                    {{ formInput fields.attunement value=source.attunement choices=CONFIG.attunementTypes
+                                 blank="BLEACHD20.AttunementNone" localize=true }}
+                </div>
+            </div>
+
+            {{!-- Magical Bonus --}}
+            {{#if (and properties.object.mgc (eq source.type.value "ammo"))}}
+            {{ formField fields.magicalBonus value=source.magicalBonus step=1 placeholder="0" label="BLEACHD20.Bonus"
+                         localize=true classes="label-top" }}
+            {{/if}}
+        </div>
+    </div>
+    {{/if}}
+</fieldset>
+
+{{#if (eq source.type.value "ammo")}}
+<fieldset>
+    <legend>{{ localize "BLEACHD20.CONSUMABLE.FIELDS.damage.label" }}</legend>
+    {{ formField fields.damage.fields.replace value=source.damage.replace input=inputs.createCheckboxInput }}
+    {{> "bleachd20.field-damage" fields=fields.damage.fields.base.fields source=source.damage.base
+        types=damageTypes prefix="system.damage.base." }}
+</fieldset>
+{{/if}}

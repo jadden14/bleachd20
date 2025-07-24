@@ -1,0 +1,13 @@
+<div class="bleachd202 chat-card rest-card">
+    {{{ content }}}
+
+    {{#if actor}}
+
+    {{!-- Deltas --}}
+    {{#if deltas.length}}{{> "bleachd20.card-deltas" }}{{/if}}
+
+    {{!-- Actions --}}
+    {{#if activities.length}}{{> "bleachd20.card-activities" }}{{/if}}
+
+    {{/if}}
+</div>

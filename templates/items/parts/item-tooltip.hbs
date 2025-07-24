@@ -38,58 +38,19 @@
             </div>
         </div>
     </section>
-    {{#if (eq type "spell")}}
-    <ul class="info unlist">
-        <li>
-            <strong>{{ localize "BLEACHD20.SpellCastTime" }}:</strong>
-            <span class="value">
-                {{ labels.activation }}
-                {{#if activation.condition}}
-                <span class="condition">({{ activation.condition }})</span>
-                {{/if}}
-            </span>
-        </li>
-        <li>
-            <strong>{{ localize "BLEACHD20.Range" }}:</strong>
-            <span class="value">{{ labels.range }}</span>
-        </li>
-        <li>
-            <strong>{{ localize "BLEACHD20.Target" }}:</strong>
-            <span class="value">{{ labels.target }}</span>
-        </li>
-        <li>
-            <strong>{{ localize "BLEACHD20.Components" }}:</strong>
-            <span class="value">
-                {{ labels.components.vsm }}
-                {{#if materials.value}}
-                <span class="materials">({{ materials.value }})</span>
-                {{/if}}
-            </span>
-        </li>
-        <li>
-            <strong>{{ localize "BLEACHD20.Duration" }}:</strong>
-            <span class="value">{{ labels.concentrationDuration }}</span>
-        </li>
-    </ul>
+    {{#if isSpell}}
+        {{> "bleachd20.spell-block" }}
     {{/if}}
     <section class="description">{{{ description.value }}}</section>
     <ul class="pills">
-        {{#if isSpell}}
-        {{#each tags}}
-        <li class="pill transparent">
-            <span class="label">{{ this }}</span>
-        </li>
-        {{/each}}
-        {{else}}
         {{#each properties}}
         <li class="pill transparent">
             <span class="label">{{ this }}</span>
         </li>
         {{/each}}
-        {{/if}}
     </ul>
     {{#if controlHints}}
-    <div class="lock-hint">
+    <div class="control-hint lock-hint">
         <img src="systems/bleachd20/icons/svg/mouse-middle.svg" alt="{{ localize "BLEACHD20.Controls.MiddleClick" }}">
         <span>{{ localize "BLEACHD20.Controls.LockHint" }}</span>
     </div>

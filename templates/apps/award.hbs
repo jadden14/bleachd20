@@ -1,38 +1,37 @@
-<form autocomplete="off">
-    <header>{{ localize "BLEACHD20.Award.Title" }}</header>
+<section>
     <div class="distribution">
-        <span>{{localize "BLEACHD20.Award.Distribution.Split"}}</span>
-        <slide-toggle name="each" {{checked each}}></slide-toggle>
-        <span>{{localize "BLEACHD20.Award.Distribution.Each"}}</span>
+        <span>{{ localize "BLEACHD20.Award.Distribution.Split" }}</span>
+        <slide-toggle name="each" {{ checked each }}></slide-toggle>
+        <span>{{ localize "BLEACHD20.Award.Distribution.Each" }}</span>
     </div>
     {{#unless hideXP}}
     <label class="xp currency-style">
-        <span class="roboto-upper">{{localize "BLEACHD20.ExperiencePoints"}}</span>
-        {{numberInput xp name="xp" class="uninput" min=0 step=1}}
+        <span class="roboto-upper">{{ localize "BLEACHD20.ExperiencePoints.Label" }}</span>
+        {{ numberInput xp name="xp" class="uninput" min=0 step=1 }}
     </label>
     {{/unless}}
     <section class="currency">
         {{#each currency}}
-        <label aria-label="{{label}}">
-            <i class="currency {{ @key }}" data-tooltip="{{ label }}"></i>
-            {{numberInput value name=(concat "amount." @key) class="uninput" min=0 step=1}}
+        <label>
+            <i class="currency {{ @key }}" data-tooltip aria-label="{{ label }}"></i>
+            {{ numberInput value name=(concat "amount." @key) class="uninput" min=0 step=1 }}
         </label>
         {{/each}}
     </section>
     <div class="destinations">
         {{#if noPrimaryParty}}
-        <p class="no-primary-party">{{localize "BLEACHD20.Award.NoPrimaryParty"}}</p>
+        <p class="no-primary-party">{{ localize "BLEACHD20.Award.NoPrimaryParty" }}</p>
         {{/if}}
         {{#each destinations}}
         <label>
-            <input type="checkbox" name="destination.{{doc.id}}" {{checked checked}}>
-            {{{icon}}} {{doc.name}}
+            <bleachd20-checkbox name="destination.{{ doc.id }}" {{ checked checked }}></bleachd20-checkbox>
+            {{{ icon }}} {{ doc.name }}
         </label>
         {{else}}
-        <p class="no-destinations">{{localize "BLEACHD20.Award.NoDestinations"}}</p>
+        <p class="no-destinations">{{ localize "BLEACHD20.Award.NoDestinations" }}</p>
         {{/each}}
     </div>
     <button type="submit" name="transfer" disabled>
-        <i class="fa-solid fa-trophy"></i> {{localize "BLEACHD20.Award.Action"}}
+        <i class="fa-solid fa-trophy" inert></i> {{ localize "BLEACHD20.Award.Action" }}
     </button>
-</form>
+</section>

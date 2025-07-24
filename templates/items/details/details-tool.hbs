@@ -1,0 +1,54 @@
+<fieldset>
+    <legend>{{ localize "BLEACHD20.ItemToolProperties" }}</legend>
+
+    {{!-- Tool Type --}}
+    {{ formField fields.type.fields.value value=source.type.value choices=CONFIG.toolTypes label="BLEACHD20.ItemToolType"
+                 blank="" localize=true }}
+
+    {{!-- Base Tool --}}
+    {{#if baseItemOptions.length}}
+    {{ formField fields.type.fields.baseItem value=source.type.baseItem options=baseItemOptions blank=""
+                 label="BLEACHD20.ItemToolBase" localize=true }}
+    {{/if}}
+
+    {{!-- Tool Properties --}}
+    {{ formField fields.properties options=properties.options label="BLEACHD20.ItemToolProperties" localize=true
+                 input=inputs.createMultiCheckboxInput stacked=true classes="checkbox-grid checkbox-grid-3" }}
+
+    {{!-- Ability Check --}}
+    <div class="form-group">
+        <label>{{ localize "BLEACHD20.ActionAbil" }}</label>
+        <div class="form-fields">
+
+            {{!-- Proficiency --}}
+            {{ formField fields.proficient value=source.proficient choices=CONFIG.proficiencyLevels
+                         label="BLEACHD20.Proficiency" blank="BLEACHD20.Automatic" localize=true classes="label-top" }}
+
+            {{!-- Ability --}}
+            {{ formField fields.ability value=source.ability choices=CONFIG.abilities labelAttr="label"
+                         label="BLEACHD20.Ability" blank="BLEACHD20.Default" localize=true classes="label-top" }}
+        </div>
+    </div>
+
+    {{!-- Tool Bonus --}}
+    {{ formField fields.bonus value=source.bonus localize=true }}
+
+    {{!-- Attunement --}}
+    {{#if properties.object.mgc}}
+    <div class="form-group">
+        <label>{{ localize "BLEACHD20.Attunement" }}</label>
+        <div class="form-fields">
+
+            {{!-- Attuned --}}
+            {{#if source.attunement}}
+            {{ formInput fields.attuned value=source.attuned input=inputs.createCheckboxInput
+                         ariaLabel=(localize "BLEACHD20.Attuned") dataset=(bleachd20-object tooltip="BLEACHD20.Attuned") }}
+            {{/if}}
+
+            {{!-- Attunement --}}
+            {{ formInput fields.attunement value=source.attunement choices=CONFIG.attunementTypes
+                         blank="BLEACHD20.AttunementNone" localize=true }}
+        </div>
+    </div>
+    {{/if}}
+</fieldset>

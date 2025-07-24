@@ -1,0 +1,11 @@
+<fieldset>
+    <legend>{{ localize "BLEACHD20.ItemSubclassDetails" }}</legend>
+
+    {{!-- Identifier --}}
+    {{ formField fields.identifier value=source.identifier placeholder=item.identifier hint="BLEACHD20.IdentifierError"
+                 localize=true }}
+
+    {{!-- Class Identifier --}}
+    {{ formField fields.classIdentifier value=source.classIdentifier hint="BLEACHD20.SubclassIdentifierHint"
+                 localize=true }}
+</fieldset>

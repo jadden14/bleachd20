@@ -2,15 +2,14 @@
     {{> journalEntryPageHeader }}
 
     <div class="form-group">
-        <label>{{ localize "JOURNALENTRYPAGE.BLEACHD20.Subclass.Item" }}</label>
+        <label>{{ localize "JOURNALENTRYPAGE.BLEACHD20.Subclass.FIELDS.item.label" }}</label>
         <div class="form-fields">
             <ol class="items-list">
                 {{#if document.system.item}}
                 <li class="item flexrow" data-item-uuid="{{ document.system.item }}" data-item-type="linked">
                     <div class="item-name">{{{ bleachd20-linkForUuid document.system.item }}}</div>
                     <div class="item-controls flexrow">
-                        <a class="item-control item-delete" data-tooltip="BLEACHD20.ItemDelete"
-                           aria-label="{{ localize 'BLEACHD20.ItemDelete' }}">
+                        <a class="item-control item-delete" data-tooltip aria-label="{{ localize 'BLEACHD20.ItemDelete' }}">
                             <i class="fa-solid fa-trash" inert></i>
                         </a>
                     </div>
@@ -22,13 +21,15 @@
         </div>
     </div>
 
+    {{ formField systemFields.style value=system.style options=styleOptions }}
+
     <div class="form-group">
-        <label>{{ localize "JOURNALENTRYPAGE.BLEACHD20.Subclass.Description" }}</label>
+        <label>{{ localize "JOURNALENTRYPAGE.BLEACHD20.Subclass.FIELDS.description.value.label" }}</label>
         <div class="form-fields">
             <button class="launch-text-editor" data-target="system.description.value">
                 <i class="fas fa-edit" inert></i> {{ localize "JOURNALENTRYPAGE.BLEACHD20.EditDescription" }}
             </button>
         </div>
-        <p class="hint">{{localize "JOURNALENTRYPAGE.BLEACHD20.Subclass.DescriptionHint"}}</p>
+        <p class="hint">{{ localize "JOURNALENTRYPAGE.BLEACHD20.Subclass.FIELDS.description.value.hint" }}</p>
     </div>
 </form>

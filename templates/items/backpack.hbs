@@ -1,0 +1,84 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+    {{!-- Item Sheet Header --}}
+    <header class="sheet-header flexrow">
+        <img class="profile" src="{{item.img}}" data-tooltip="{{item.name}}" data-edit="img"/>
+
+        <div class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'BLEACHD20.ItemName' }}"/>
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{itemType}}</h4>
+                <span class="item-status">{{itemStatus}}</span>
+            </div>
+
+            <ul class="summary flexrow">
+                <li>
+                    <select name="system.rarity">
+                        {{selectOptions config.itemRarity selected=system.rarity blank=""}}
+                    </select>
+                </li>
+                <li>
+                    {{> "bleachd20.item-source"}}
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    {{!-- Item Sheet Navigation --}}
+    <nav class="sheet-navigation tabs" data-group="primary">
+        <a class="item active" data-tab="description">{{ localize "BLEACHD20.Description" }}</a>
+        <a class="item" data-tab="details">{{ localize "BLEACHD20.Details" }}</a>
+    </nav>
+
+    {{!-- Item Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        {{> "bleachd20.item-description"}}
+
+        {{!-- Details Tab --}}
+        <div class="tab details" data-group="primary" data-tab="details">
+            <h3 class="form-header">{{localize 'BLEACHD20.ItemContainerDetails'}}</h3>
+
+            <div class="form-group stacked">
+                <label>{{ localize "BLEACHD20.ItemContainerStatus" }}</label>
+                <label class="checkbox">
+                    <input type="checkbox" name="system.equipped" {{ checked system.equipped }}>
+                    {{ localize "BLEACHD20.Equipped" }}
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>{{localize 'BLEACHD20.ItemContainerCapacity'}}</label>
+                <div class="form-fields">
+                    {{numberInput system.capacity.value name="system.capacity.value" placeholder="&mdash;"}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>{{localize 'BLEACHD20.ItemContainerCapacityType'}}</label>
+                <select name="system.capacity.type">
+                    {{selectOptions config.itemCapacityTypes selected=system.capacity.type}}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>{{localize "BLEACHD20.Attunement"}}</label>
+                <select name="system.attunement" data-dtype="Number">
+                    {{selectOptions config.attunements selected=system.attunement}}
+                </select>
+            </div>
+
+            <div class="form-group stacked">
+                <label>{{localize 'BLEACHD20.ItemContainerProperties'}}</label>
+                <label class="checkbox">
+                    <input type="checkbox" name="system.capacity.weightless" {{checked system.capacity.weightless}}>
+                    {{localize 'BLEACHD20.ItemContainerWeightless'}}
+                </label>
+            </div>
+        </div>
+    </section>
+</form>

@@ -10,7 +10,7 @@
         {{#if replaceable}}
         <div class="item-name">
             <label class="flexrow">
-                <h4>{{ localize "BLEACHD20.AdvancementItemChoiceReplacementNone" }}</h4>
+                <h4>{{ localize "BLEACHD20.ADVANCEMENT.ItemChoice.Replacement.None" }}</h4>
                 <input type="radio" name="replace" value="" {{ checked noReplacement }}>
             </label>
         </div>
@@ -41,7 +41,7 @@
         {{/each}}
 
         <h4 class="form-header">
-            {{ localize "BLEACHD20.AdvancementItemChoiceChosen" current=choices.current max=choices.max }}
+            {{ localize "BLEACHD20.ADVANCEMENT.ItemChoice.Chosen" current=choices.current max=choices.max }}
         </h4>
 
         {{#each items}}
@@ -52,13 +52,13 @@
                     <a data-uuid="{{this.uuid}}">{{ name }}</a>
                 </h4>
                 {{#if dropped}}
-                <a class="item-control item-delete" data-tooltip="BLEACHD20.ItemDelete"
-                   aria-label="{{ localize 'BLEACHD20.ItemDelete' }}">
+                <button type="button" class="unbutton control-button item-control item-delete"
+                        data-tooltip aria-label="{{ localize 'BLEACHD20.ItemDelete' }}">
                     <i class="fa-solid fa-trash" inert></i>
-                </a>
+                </button>
                 <input type="hidden" name="{{ uuid }}" value="true" data-dtype="Boolean">
                 {{else}}
-                <input type="checkbox" name="{{ uuid }}" {{ checked checked }} {{ disabled disabled }}>
+                <bleachd20-checkbox name="{{ uuid }}" {{ checked checked }} {{ disabled disabled }}></bleachd20-checkbox>
                 {{/if}}
             </label>
         </div>

@@ -1,0 +1,19 @@
+<section class="tab activity-{{ tab.id }} {{ tab.cssClass }}" data-tab="{{ tab.id }}" data-group="{{ tab.group }}">
+    <fieldset {{ disabled disabled.range }}>
+        <legend>
+            <label class="checkbox">
+                {{ localize "BLEACHD20.RANGE.FIELDS.range.label" }}
+                {{#if activity.range.canOverride}}
+                {{ formInput fields.range.fields.override value=source.range.override input=inputs.createCheckboxInput
+                             dataset=(bleachd20-object tooltip="BLEACHD20.RANGE.FIELDS.range.override.hint")
+                             ariaLabel=(localize "BLEACHD20.RANGE.FIELDS.range.override.hint")}}
+                {{/if}}
+            </label>
+        </legend>
+        {{> "bleachd20.field-range" range=activity.range fields=fields.range.fields data=data.range rangeTypes=rangeUnits
+            inputs=inputs }}
+    </fieldset>
+
+    {{> "bleachd20.field-targets" target=activity.target fields=fields.target.fields data=data.target source=source.target
+        inputs=inputs disabled=disabled.target }}
+</section>

@@ -1,0 +1,74 @@
+<header class="sheet-header">
+
+    {{!-- Name & Class --}}
+    <div class="left optional-ability-{{ abilityRows.optional }}">
+
+        {{!-- Name --}}
+        {{#if editable}}
+        <input type="text" name="name" class="document-name uninput" value="{{ actor.name }}">
+        {{else}}
+        <div class="document-name">{{ actor.name }}</div>
+        {{/if}}
+
+        {{!-- Class --}}
+        <div class="class roboto-upper">{{ labels.class }}</div>
+    </div>
+
+    {{!-- Level, Inspiration, XP, & Buttons --}}
+    <div class="right">
+
+        {{!-- Level --}}
+        <div class="level-badge badge" aria-label="{{ localize 'BLEACHD20.LevelNumber' level=system.details.level }}">
+            {{ system.details.level }}
+        </div>
+
+        {{!-- Inspiration --}}
+        <button type="button" class="inspiration unbutton" data-action="toggleInspiration"
+                aria-label="{{ localize 'BLEACHD20.Inspiration' }}" data-tooltip="BLEACHD20.Inspiration"
+                aria-pressed="{{ system.attributes.inspiration }}"></button>
+
+        {{!-- Epic Boons --}}
+        {{#if system.details.xp.boonsEarned}}
+        <div class="boon-badge badge" data-tooltip="{{ epicBoonsEarned }}" aria-label="{{ epicBoonsEarned }}">
+            {{ bleachd20-numberFormat system.details.xp.boonsEarned numerals=true }}
+        </div>
+        {{/if}}
+
+        <div>
+            {{!-- Resting & Special Traits --}}
+            {{#if actor.isOwner}}
+            <div class="sheet-header-buttons">
+                <button type="button" class="short-rest gold-button" data-action="rest" data-type="short"
+                        data-tooltip="BLEACHD20.REST.Short.Label" aria-label="{{ localize 'BLEACHD20.REST.Short.Label' }}">
+                    <i class="fas fa-utensils" inert></i>
+                </button>
+                <button type="button" class="long-rest gold-button" data-action="rest" data-type="long"
+                        data-tooltip="BLEACHD20.REST.Long.Label" aria-label="{{ localize 'BLEACHD20.REST.Long.Label' }}">
+                    <i class="fas fa-campground" inert></i>
+                </button>
+            </div>
+            {{/if}}
+
+            {{!-- XP --}}
+            {{#if showExperience}}
+            {{#with system.details.xp}}
+            <div class="xp-label roboto-upper">
+                {{#if @root.editable}}
+                <input type="text" name="system.details.xp.value" class="value uninput" data-dtype="Number"
+                       value="{{ value }}">
+                {{else}}
+                <span class="value">{{ bleachd20-numberFormat value }}</span>
+                {{/if}}
+                {{#unless @root.epicBoonsEarned}}
+                <span class="separator">&sol;</span>
+                <span class="max">{{ bleachd20-numberFormat max }}</span>
+                {{/unless}}
+            </div>
+            <div class="xp-bar" role="meter" aria-label="{{ localize 'BLEACHD20.ExperiencePoints.Progress' }}"
+                 aria-valuemin="{{ min }}" aria-valuenow="{{ value }}" aria-valuemax="{{ max }}"
+                 aria-valuetext="{{ pct }}%" style="--bar-percentage: {{ pct }}%;"></div>
+            {{/with}}
+            {{/if}}
+        </div>
+    </div>
+</header>

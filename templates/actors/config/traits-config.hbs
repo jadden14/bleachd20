@@ -1,0 +1,16 @@
+<section>
+    {{#each choices}}
+    <fieldset class="traits card">
+        <legend>{{ label }}</legend>
+        {{> "bleachd20.traits-list" choices=children keyPath=(concat @root.keyPath ".value.") topLevel=true
+            field=@root.checkbox input=@root.inputs.createCheckboxInput }}
+    </fieldset>
+    {{/each}}
+    {{#if fields.custom}}
+    <fieldset class="card">
+        <legend>{{ localize "BLEACHD20.Special" }}</legend>
+        {{ formInput fields.custom value=data.custom }}
+        <p class="hint">{{ localize "BLEACHD20.SpecialHint" }}</p>
+    </fieldset>
+    {{/if}}
+</section>

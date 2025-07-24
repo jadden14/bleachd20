@@ -1,7 +1,7 @@
 <form class="{{ cssClass }}" autocomplete="off">
     <div class="left flexcol">
         {{> journalEntryPageHeader }}
-    
+
         <div class="form-group">
             <label>{{ localize "JOURNALENTRYPAGE.BLEACHD20.SpellList.Type.Label" }}</label>
             <div class="form-fields">
@@ -10,7 +10,7 @@
                 </select>
             </div>
         </div>
-    
+
         <div class="form-group">
             <label>{{ localize "BLEACHD20.Identifier" }}</label>
             <div class="form-fields">
@@ -18,7 +18,7 @@
             </div>
             <p class="hint">{{ localize "JOURNALENTRYPAGE.BLEACHD20.SpellList.IdentifierHint" }}
         </div>
-    
+
         <div class="form-group">
             <label>{{ localize "JOURNALENTRYPAGE.BLEACHD20.SpellList.Grouping.Label" }}</label>
             <div class="form-fields">
@@ -30,19 +30,19 @@
                 {{ localize "JOURNALENTRYPAGE.BLEACHD20.SpellList.Grouping.Hint" }}
             </p>
         </div>
-    
+
         <div class="form-group">
             <label>{{ localize "BLEACHD20.Description" }}</label>
         </div>
-    
+
         {{ editor description target="system.description.value" button=false editable=editable
            engine="prosemirror" collaborate=false }}
     </div>
 
     <div class="right spell-list">
         <h3 class="flexrow">
-            {{ localize "ITEM.TypeSpellPl" }}
-            <a data-action="add-unlinked" data-tooltip="JOURNALENTRYPAGE.BLEACHD20.SpellList.UnlinkedSpells.Add"
+            {{ localize "TYPES.Item.spellPl" }}
+            <a data-action="add-unlinked" data-tooltip
                aria-label="{{ localize 'JOURNALENTRYPAGE.BLEACHD20.SpellList.UnlinkedSpells.Add' }}">
                 <i class="fa-solid fa-plus" inert></i>
             </a>
@@ -54,12 +54,11 @@
                 <div class="item-controls flexrow">
                     {{#if unlinked}}
                     <a class="item-control" data-action="edit-unlinked"
-                       data-tooltip="JOURNALENTRYPAGE.BLEACHD20.SpellList.UnlinkedSpells.Edit"
-                       aria-label="{{ localize 'JOURNALENTRYPAGE.BLEACHD20.SpellList.UnlinkedSpells.Edit' }}">
+                       data-tooltip aria-label="{{ localize 'JOURNALENTRYPAGE.BLEACHD20.SpellList.UnlinkedSpells.Edit' }}">
                         <i class="fa-solid fa-cog" inert></i>
                     </a>
                     {{/if}}
-                    <a class="item-control" data-action="delete" data-tooltip="BLEACHD20.ItemDelete"
+                    <a class="item-control" data-action="delete" data-tooltip
                        aria-label="{{ localize 'BLEACHD20.ItemDelete' }}">
                         <i class="fa-solid fa-trash" inert></i>
                     </a>

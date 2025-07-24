@@ -2,10 +2,10 @@
     "id": "bleachd20",
     "title": "Bleach fifth edition",
     "description": "A System incorporating the Bleach 5e implementation into FTT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "compatibility": {
-        "minimum": "11.315",
-        "verified": "12"
+        "minimum": "13.341",
+        "verified": "13"
     },
     "url": "https://github.com/jadden14/bleachd20",
     "manifest": "https://raw.githubusercontent.com/jadden14/bleachd20/main/system.json",
@@ -23,6 +23,158 @@
     "styles": [
         "bleachd20.css"
     ],
+    "documentTypes": {
+        "ActiveEffect": {
+            "enchantment": {}
+        },
+        "Actor": {
+            "character": {
+                "htmlFields": [
+                    "details.biography.value",
+                    "details.biography.public",
+                    "bastion.description"
+                ]
+            },
+            "npc": {
+                "htmlFields": [
+                    "details.biography.value",
+                    "details.biography.public"
+                ]
+            },
+            "vehicle": {
+                "htmlFields": [
+                    "details.biography.value",
+                    "details.biography.public"
+                ]
+            },
+            "group": {
+                "htmlFields": [
+                    "description.full",
+                    "description.summary"
+                ]
+            }
+        },
+        "ChatMessage": {
+            "rest": {},
+            "turn": {}
+        },
+        "Item": {
+            "weapon": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat",
+                    "unidentified.description"
+                ]
+            },
+            "equipment": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat",
+                    "unidentified.description"
+                ]
+            },
+            "consumable": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat",
+                    "unidentified.description"
+                ]
+            },
+            "tool": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat",
+                    "unidentified.description"
+                ]
+            },
+            "loot": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat",
+                    "unidentified.description"
+                ]
+            },
+            "race": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat"
+                ]
+            },
+            "background": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat"
+                ]
+            },
+            "class": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat"
+                ]
+            },
+            "subclass": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat"
+                ]
+            },
+            "spell": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat"
+                ]
+            },
+            "feat": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat"
+                ]
+            },
+            "container": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat",
+                    "unidentified.description"
+                ]
+            },
+            "backpack": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat",
+                    "unidentified.description"
+                ]
+            },
+            "facility": {
+                "htmlFields": [
+                    "description.value",
+                    "description.chat"
+                ]
+            }
+        },
+        "JournalEntryPage": {
+            "class": {
+                "htmlFields": [
+                    "details.value",
+                    "details.additionalHitPoints",
+                    "description.additionalTraits",
+                    "description.additionalEquipment",
+                    "description.subclass"
+                ]
+            },
+            "map": {},
+            "rule": {
+                "htmlFields": [
+                    "tooltip"
+                ]
+            },
+            "spells": {},
+            "subclass": {
+                "htmlFields": [
+                    "details.value"
+                ]
+            }
+        }
+    },
     "packs": [
         {
             "name": "heroes",
@@ -33,6 +185,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "character"
                     ]
@@ -48,6 +201,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "npc"
                     ]
@@ -63,6 +217,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "weapon",
                         "equipment",
@@ -84,6 +239,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "loot"
                     ]
@@ -99,6 +255,8 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sorting": "m",
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "spell"
                     ]
@@ -114,6 +272,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "background",
                         "feat"
@@ -130,6 +289,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "class"
                     ]
@@ -145,6 +305,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "subclass"
                     ]
@@ -160,6 +321,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "feat",
                         "weapon"
@@ -176,6 +338,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "race",
                         "feat"
@@ -192,6 +355,7 @@
             "private": false,
             "flags": {
                 "bleachd20": {
+                    "sourceBook": "SRD 5.1",
                     "types": [
                         "feat",
                         "weapon"
@@ -207,7 +371,9 @@
             "type": "JournalEntry",
             "private": false,
             "flags": {
-                "display": "table-of-contents"
+                "bleachd20": {
+                    "display": "table-of-contents"
+                }
             }
         },
         {
@@ -218,11 +384,174 @@
             "type": "RollTable",
             "private": false,
             "flags": {}
+        },
+        {
+            "name": "content24",
+            "label": "Rules",
+            "path": "packs/content24",
+            "type": "JournalEntry",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "bleachd20",
+            "flags": {
+                "display": "table-of-contents"
+            }
+        },
+        {
+            "name": "classes24",
+            "label": "Character Classes",
+            "path": "packs/classes24",
+            "type": "Item",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "bleachd20",
+            "flags": {
+                "bleachd20": {
+                    "sourceBook": "SRD 5.2",
+                    "types": [
+                        "class",
+                        "subclass",
+                        "feat"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "origins24",
+            "label": "Character Origins",
+            "path": "packs/origins24",
+            "type": "Item",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "bleachd20",
+            "flags": {
+                "bleachd20": {
+                    "sourceBook": "SRD 5.2",
+                    "types": [
+                        "race",
+                        "background",
+                        "feat"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "feats24",
+            "label": "Feats",
+            "path": "packs/feats24",
+            "type": "Item",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "bleachd20",
+            "flags": {
+                "bleachd20": {
+                    "sourceBook": "SRD 5.2",
+                    "types": [
+                        "feat"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spells24",
+            "label": "Spells",
+            "path": "packs/spells24",
+            "type": "Item",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "bleachd20",
+            "flags": {
+                "bleachd20": {
+                    "sorting": "m",
+                    "sourceBook": "SRD 5.2",
+                    "types": [
+                        "spell"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "equipment24",
+            "label": "Equipment",
+            "path": "packs/equipment24",
+            "type": "Item",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "bleachd20",
+            "flags": {
+                "bleachd20": {
+                    "sourceBook": "SRD 5.2",
+                    "types": [
+                        "weapon",
+                        "equipment",
+                        "consumable",
+                        "tool",
+                        "loot",
+                        "feat",
+                        "container"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "tables24",
+            "label": "Roll Tables",
+            "path": "packs/tables24",
+            "type": "RollTable",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "bleachd20"
+        },
+        {
+            "name": "actors24",
+            "label": "Actors",
+            "path": "packs/actors24",
+            "type": "Actor",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "bleachd20",
+            "flags": {
+                "bleachd20": {
+                    "sorting": "m",
+                    "sourceBook": "SRD 5.2"
+                }
+            }
         }
     ],
     "packFolders": [
         {
-            "name": "D&D SRD Content",
+            "name": "D&D Modern Content",
+            "color": "#cd2c1e",
+            "sorting": "m",
+            "packs": [
+                "content24",
+                "classes24",
+                "origins24",
+                "feats24",
+                "spells24",
+                "tables24",
+                "actors24",
+                "equipment24"
+            ]
+        },
+        {
+            "name": "D&D Legacy Content",
             "sorting": "m",
             "color": "#cd2c1e",
             "packs": [
@@ -286,8 +615,6 @@
         }
     ],
     "socket": true,
-    "gridDistance": 5,
-    "gridUnits": "ft",
     "grid": {
         "distance": 5,
         "units": "ft"
@@ -295,7 +622,20 @@
     "primaryTokenAttribute": "attributes.hp",
     "background": "systems/bleachd20/ui/official/bleachd20-background.webp",
     "flags": {
-        "needsMigrationVersion": "3.1.0",
+        "compendiumArtMappings": {
+            "bleachd20": {
+                "mapping": "systems/bleachd20/json/fa-token-mapping.json",
+                "credit": "<em>Token artwork by <a href=\"https://www.forgotten-adventures.net/\" target=\"_blank\" rel=\"noopener\">Forgotten Adventures</a>.</em>"
+            }
+        },
+        "bleachd20": {
+            "sourceBooks": {
+                "SRD 5.1": "SOURCE.BOOK.SRD51",
+                "SRD 5.2": "SOURCE.BOOK.SRD52",
+                "Free Rules": "SOURCE.BOOK.FreeRules"
+            }
+        },
+        "needsMigrationVersion": "4.4.0",
         "compatibleMigrationVersion": "0.8",
         "hotReload": false
     }

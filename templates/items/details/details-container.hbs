@@ -1,0 +1,69 @@
+<fieldset>
+    <legend>{{ localize "BLEACHD20.CONTAINER.Details" }}</legend>
+
+    {{!-- Container Properties --}}
+    {{ formField fields.properties options=properties.options input=inputs.createMultiCheckboxInput stacked=true
+                 classes="checkbox-grid checkbox-grid-3" }}
+
+    {{!-- Attunement --}}
+    {{#if properties.object.mgc}}
+    <div class="form-group">
+        <label>{{ localize "BLEACHD20.Attunement" }}</label>
+        <div class="form-fields">
+
+            {{!-- Attuned --}}
+            {{#if source.attunement}}
+            {{ formInput fields.attuned value=source.attuned input=inputs.createCheckboxInput
+                         ariaLabel=(localize "BLEACHD20.Attuned") dataset=(bleachd20-object tooltip="BLEACHD20.Attuned") }}
+            {{/if}}
+
+            {{!-- Attunement --}}
+            {{ formInput fields.attunement value=source.attunement choices=CONFIG.attunementTypes
+                         blank="BLEACHD20.AttunementNone" localize=true }}
+
+        </div>
+    </div>
+    {{/if}}
+
+</fieldset>
+
+<fieldset>
+    <legend>{{ localize "BLEACHD20.CONTAINER.FIELDS.capacity.label" }}</legend>
+
+    {{!-- Item Capacity --}}
+    {{ formField fields.capacity.fields.count value=source.capacity.count placeholder="—" }}
+
+    {{!-- Volume Capacity --}}
+    <div class="form-group split-group">
+        <label>{{ localize "BLEACHD20.CONTAINER.FIELDS.capacity.volume.label" }}</label>
+        <div class="form-fields">
+
+            {{!-- Amount --}}
+            {{ formField fields.capacity.fields.volume.fields.value value=source.capacity.volume.value
+                         label="BLEACHD20.Amount" localize=true classes="label-top" placeholder="—" }}
+
+            {{!-- Units --}}
+            {{ formField fields.capacity.fields.volume.fields.units value=source.capacity.volume.units
+                         label="BLEACHD20.Unit" localize=true classes="label-top" choices=CONFIG.volumeUnits
+                         labelAttr="label" }}
+
+        </div>
+    </div>
+
+    {{!-- Weight Capacity --}}
+    <div class="form-group split-group">
+        <label>{{ localize "BLEACHD20.CONTAINER.FIELDS.capacity.weight.label" }}</label>
+        <div class="form-fields">
+
+            {{!-- Amount --}}
+            {{ formField fields.capacity.fields.weight.fields.value value=source.capacity.weight.value
+                         label="BLEACHD20.Amount" localize=true classes="label-top" placeholder="—" }}
+
+            {{!-- Units --}}
+            {{ formField fields.capacity.fields.weight.fields.units value=source.capacity.weight.units
+                         label="BLEACHD20.Unit" localize=true classes="label-top" choices=CONFIG.weightUnits
+                         labelAttr="label" }}
+
+        </div>
+    </div>
+</fieldset>

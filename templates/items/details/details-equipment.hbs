@@ -1,0 +1,82 @@
+<fieldset>
+    <legend>{{ localize "BLEACHD20.ItemEquipmentDetails" }}</legend>
+
+    {{!-- Equipment Type --}}
+    {{ formField fields.type.fields.value value=source.type.value label="BLEACHD20.ItemEquipmentType" blank=""
+                 localize=true options=equipmentTypeOptions }}
+
+    {{!-- Equipment Base --}}
+    {{#if baseItemOptions.length}}
+    {{ formField fields.type.fields.baseItem value=source.type.baseItem label="BLEACHD20.ItemEquipmentBase" blank=""
+                 localize=true options=baseItemOptions }}
+    {{/if}}
+
+    {{!-- Proficiency --}}
+    {{ formField fields.proficient value=source.proficient blank="BLEACHD20.Automatic" localize=true
+                 choices=CONFIG.weaponAndArmorProficiencyLevels }}
+
+    {{!-- Armor --}}
+    {{#if system.isArmor}}
+    <div class="form-group split-group">
+        <label>{{ localize "BLEACHD20.Armor" }}</label>
+        <div class="form-fields">
+
+            {{!-- Value --}}
+            {{ formField fields.armor.fields.value value=source.armor.value step=1 label="BLEACHD20.AC" localize=true
+                         classes="label-top" }}
+
+            {{!-- Max Dex --}}
+            {{#if hasDexModifier}}
+            {{ formField fields.armor.fields.dex value=source.armor.dex label="BLEACHD20.ItemEquipmentDexModAbbr"
+                         placeholder="∞" localize=true classes="label-top" }}
+            {{/if}}
+
+            {{!-- Strength Requirement --}}
+            {{#if system.isArmor}}
+            {{ formField fields.strength value=source.strength label="BLEACHD20.AbilityStr" placeholder="—" localize=true
+                         classes="label-top" }}
+            {{/if}}
+        </div>
+    </div>
+    {{/if}}
+
+    {{!-- Properties --}}
+    {{ formField fields.properties options=properties.options label="BLEACHD20.ItemEquipmentProperties" localize=true
+                 input=inputs.createMultiCheckboxInput stacked=true classes="checkbox-grid checkbox-grid-3" }}
+
+    {{!-- Magical Properties --}}
+    {{#if properties.object.mgc}}
+    <div class="form-group split-group">
+        <label>{{ localize "BLEACHD20.ITEM.Property.Magical" }}</label>
+        <div class="form-fields">
+
+            {{!-- Attunement --}}
+            {{#unless system.isMountable}}
+            <div class="form-group label-top">
+                <label>{{ localize "BLEACHD20.Attunement" }}</label>
+                <div class="form-fields">
+
+                    {{!-- Attuned --}}
+                    {{#if source.attunement}}
+                    {{ formInput fields.attuned value=source.attuned input=inputs.createCheckboxInput
+                                 ariaLabel=(localize "BLEACHD20.Attuned") dataset=(bleachd20-object tooltip="BLEACHD20.Attuned") }}
+                    {{/if}}
+
+                    {{!-- Attunement --}}
+                    {{ formInput fields.attunement value=source.attunement choices=CONFIG.attunementTypes
+                                 blank="BLEACHD20.AttunementNone" localize=true }}
+                </div>
+            </div>
+            {{/unless}}
+
+            {{!-- Magical Bonus --}}
+            {{ formField fields.armor.fields.magicalBonus value=source.armor.magicalBonus step=1 placeholder="0"
+                         label="BLEACHD20.Bonus" localize=true classes="label-top" }}
+        </div>
+    </div>
+    {{/if}}
+</fieldset>
+
+{{#if system.isMountable}}
+    {{> "bleachd20.details-mountable" }}
+{{/if}}

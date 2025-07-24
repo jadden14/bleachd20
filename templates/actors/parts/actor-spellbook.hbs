@@ -5,18 +5,14 @@
         <label>{{localize "BLEACHD20.Spellcasting"}}</label>
         {{else}}
         <label>{{localize "BLEACHD20.Level"}}</label>
-        {{numberInput system.details.spellLevel name="system.details.spellLevel" class="spellcasting-level"
+        {{numberInput system.attributes.spell.level name="system.attributes.spell.level" class="spellcasting-level"
                       placeholder="0" min=0 step=1 disabled=classSpellcasting}}
         {{/unless}}
         <select name="system.attributes.spellcasting" data-type="String">
-            {{#select system.attributes.spellcasting}}
-            <option value="">{{localize "BLEACHD20.None"}}</option>
-            {{#each abilities as |abl a|}}
-            <option value="{{a}}">{{abl.label}}</option>
-            {{/each}}
-            {{/select}}
+            {{ selectOptions config.abilities selected=system.attributes.spellcasting labelAttr="label"
+                             blank=(localize "BLEACHD20.None") }}
         </select>
-        <span>{{localize "BLEACHD20.AbbreviationDC"}} {{system.attributes.spelldc}}</span>
+        <span>{{localize "BLEACHD20.AbbreviationDC"}} {{system.attributes.spell.dc}}</span>
     </div>
 
     <ul class="filter-list flexrow" data-filter="spellbook">
@@ -74,7 +70,7 @@
             <div class="item-name flexrow rollable">
                 <div class="item-image item-action" data-action="use" tabindex="0" role="button"
                      aria-label="{{item.name}}" style="background-image: url('{{item.img}}')"></div>
-                <h4 class="item-action" data-action="expand">{{item.name}}</h4>
+                <h4 class="item-action" data-action="toggleExpand">{{item.name}}</h4>
                 {{#if item.hasLimitedUses}}
                 <div class="item-detail spell-uses">
                   {{localize "BLEACHD20.Uses"}} {{#if item.system.uses.value}}{{item.system.uses.value}}{{else}}0{{/if}} / {{item.system.uses.max}}

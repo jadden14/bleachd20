@@ -1,25 +1,32 @@
-<div class="advancement">
-    <p>{{localize "BLEACHD20.AdvancementMigrationHint" name=item.name}}</p>
-    <ol class="items-list">
-        <li class="items-header flexrow">
-            <h3 class="item-name flexrow">{{localize "BLEACHD20.AdvancementTitle"}}</h3>
-            <div class="item-controls flexrow">{{localize "BLEACHD20.Add"}}</div>
-        </li>
+<fieldset class="card items">
+    <legend>{{ localize "BLEACHD20.ADVANCEMENT.Migration.Selection" }}</legend>
+    <div class="form-group hint">
+        <p class="hint">{{ localize "BLEACHD20.ADVANCEMENT.Migration.Hint" name=item.name }}</p>
+    </div>
+    <div class="header">
+        <div class="item-name">{{ localize "BLEACHD20.AdvancementTitle" }}</div>
+        <div class="item-controls">{{ localize "BLEACHD20.Add" }}</div>
+    </div>
+    <ol class="items-list unlist">
         {{#each advancements}}
         <li class="advancement-item item flexrow">
             <div class="item-name flexrow">
-                <div class="item-image" style="background-image: url('{{this.icon}}')"></div>
-                <h4>{{this.title}}</h4>
+                {{#if svg}}
+                <bleachd20-icon src="{{ icon }}"></bleachd20-icon>
+                {{else}}
+                <img class="gold-icon" src="{{ icon }}" alt="{{ title }}">
+                {{/if}}
+                <span class="name">{{ title }}</span>
             </div>
             <div class="item-controls flexrow">
-                <input type="checkbox" name="{{this.id}}" checked>
+                <bleachd20-checkbox name="{{ id }}" checked></bleachd20-checkbox>
             </div>
-            {{#if this.summary}}
+            {{#if summary}}
             <div class="item-summary">
-                {{{this.summary}}}
+                {{{ summary }}}
             </div>
             {{/if}}
         </li>
         {{/each}}
     </ol>
-</div>
+</fieldset>
